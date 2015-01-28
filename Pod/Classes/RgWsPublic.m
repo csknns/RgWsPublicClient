@@ -2210,7 +2210,7 @@
 	return [self performSynchronousOperation:[[(RgWsPublicBinding_rgWsPublicVersionInfo*)[RgWsPublicBinding_rgWsPublicVersionInfo alloc] initWithBinding:self delegate:self
 																							] autorelease]];
 }
-- (void)rgWsPublicVersionInfoAsyncUsing delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate
+- (void)rgWsPublicVersionInfoAsyncUsingDelegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate
 {
 	[self performAsynchronousOperation: [[(RgWsPublicBinding_rgWsPublicVersionInfo*)[RgWsPublicBinding_rgWsPublicVersionInfo alloc] initWithBinding:self delegate:responseDelegate
 																							 ] autorelease]];

@@ -258,7 +258,7 @@ SOAPSigner *soapSigner;
 - (RgWsPublicBindingResponse *)rgWsPublicAfmMethodUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out ;
 - (void)rgWsPublicAfmMethodAsyncUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out  delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
 - (RgWsPublicBindingResponse *)rgWsPublicVersionInfoUsing;
-- (void)rgWsPublicVersionInfoAsyncUsing delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
+- (void)rgWsPublicVersionInfoAsyncUsingDelegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
 @end
 @interface RgWsPublicBindingOperation : NSOperation {
 	RgWsPublicBinding *binding;
