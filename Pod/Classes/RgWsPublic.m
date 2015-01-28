@@ -2432,7 +2432,7 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 		[bodyKeys addObject:@"pErrorRec_out"];
 	}
 	
-	NSString *operationXMLString = [envelope serializedFormUsingHeaderElements:headerElements bodyElements:bodyElements bodyKeys:bodyKeys];
+	NSString *operationXMLString = [envelope serializedFormUsingHeaderElements:headerElements bodyElements:bodyElements bodyKeys:bodyKeys method:@"rgWsPublicAfmMethod"];
 	operationXMLString = binding.soapSigner ? [binding.soapSigner signRequest:operationXMLString] : operationXMLString;
 	
 	[binding sendHTTPCallUsingBody:operationXMLString soapAction:@"http://gr/gsis/rgwspublic/RgWsPublic.wsdl/rgWsPublicAfmMethod" forOperation:self];
@@ -2546,7 +2546,7 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 	bodyKeys = [NSMutableArray array];
 	id obj = nil;
 	
-	NSString *operationXMLString = [envelope serializedFormUsingHeaderElements:headerElements bodyElements:bodyElements bodyKeys:bodyKeys];
+	NSString *operationXMLString = [envelope serializedFormUsingHeaderElements:headerElements bodyElements:bodyElements bodyKeys:bodyKeys method:@"rgWsPublicVersionInfo"];
 	operationXMLString = binding.soapSigner ? [binding.soapSigner signRequest:operationXMLString] : operationXMLString;
 	
 	[binding sendHTTPCallUsingBody:operationXMLString soapAction:@"http://gr/gsis/rgwspublic/RgWsPublic.wsdl/rgWsPublicVersionInfo" forOperation:self];
@@ -2626,7 +2626,7 @@ static RgWsPublicBinding_envelope *RgWsPublicBindingSharedEnvelopeInstance = nil
 	
 	return RgWsPublicBindingSharedEnvelopeInstance;
 }
-- (NSString *)serializedFormUsingHeaderElements:(NSDictionary *)headerElements bodyElements:(NSDictionary *)bodyElements bodyKeys:(NSArray *)bodyKeys
+- (NSString *)serializedFormUsingHeaderElements:(NSDictionary *)headerElements bodyElements:(NSDictionary *)bodyElements bodyKeys:(NSArray *)bodyKeys method:(NSString *)methodName
 {
 	xmlDocPtr doc;
 	
@@ -2667,15 +2667,21 @@ static RgWsPublicBinding_envelope *RgWsPublicBindingSharedEnvelopeInstance = nil
 		}
 	}
 	
-	if((bodyElements != nil) && ([bodyElements count] > 0)) {
-		xmlNodePtr bodyNode = xmlNewDocNode(doc, soapEnvelopeNs, (const xmlChar*)"Body", NULL);
-		xmlAddChild(root, bodyNode);
-		
-		for(NSString *key in bodyKeys) {
-			id body = [bodyElements objectForKey:key];
-			xmlAddChild(bodyNode, [body xmlNodeForDoc:doc elementName:key elementNSPrefix:nil]);
-		}
-	}
+    if(((bodyElements != nil) && ([bodyElements count] > 0)) || methodName.length>0) {
+        xmlNodePtr bodyNode = xmlNewDocNode(doc, soapEnvelopeNs, (const xmlChar*)"Body", NULL);
+        xmlAddChild(root, bodyNode);
+        
+        xmlNsPtr serviceNs = xmlNewNs(root, (const xmlChar*)"http://gr/gsis/rgwspublic/RgWsPublic.wsdl",
+                                      (const xmlChar*)"ns1");
+        xmlNodePtr methodNode = xmlNewDocNode(doc, serviceNs, (const xmlChar*) [methodName
+                                                                                UTF8String], NULL);
+        xmlAddChild(bodyNode, methodNode);
+        
+        for(NSString *key in bodyKeys) {
+            id body = [bodyElements objectForKey:key];
+            xmlAddChild(bodyNode, [body xmlNodeForDoc:doc elementName:key elementNSPrefix:nil]);
+        }
+    }
 	
 	xmlChar *buf;
 	int size;

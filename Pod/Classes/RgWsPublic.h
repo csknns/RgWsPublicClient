@@ -303,7 +303,7 @@ SOAPSigner *soapSigner;
 @interface RgWsPublicBinding_envelope : NSObject {
 }
 + (RgWsPublicBinding_envelope *)sharedInstance;
-- (NSString *)serializedFormUsingHeaderElements:(NSDictionary *)headerElements bodyElements:(NSDictionary *)bodyElements bodyKeys:(NSArray *)bodyKeys;
+- (NSString *)serializedFormUsingHeaderElements:(NSDictionary *)headerElements bodyElements:(NSDictionary *)bodyElements bodyKeys:(NSArray *)bodyKeys method:(NSString *)methodName;
 @end
 @interface RgWsPublicBindingResponse : NSObject {
 	NSArray *headers;
