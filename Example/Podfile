@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'RgWsPublicClient', :exclusive => true do
+  pod "RgWsPublicClient", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "RgWsPublicClient", :path => "../"
+
+  
+end
