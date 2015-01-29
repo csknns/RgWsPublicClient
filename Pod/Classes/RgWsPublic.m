@@ -2463,50 +2463,57 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 		} else {
 			cur = xmlDocGetRootElement(doc);
 			cur = cur->children;
-			
-			for( ; cur != NULL ; cur = cur->next) {
-				if(cur->type == XML_ELEMENT_NODE) {
-					
-					if(xmlStrEqual(cur->name, (const xmlChar *) "Body")) {
-						NSMutableArray *responseBodyParts = [NSMutableArray array];
-						
-						xmlNodePtr bodyNode;
-						for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
-							if(cur->type == XML_ELEMENT_NODE) {
-								if(xmlStrEqual(bodyNode->name, (const xmlChar *) "RgWsPublicBasicRt_out")) {
-									RgWsPublic_RgWsPublicBasicRtUser *bodyObject = [RgWsPublic_RgWsPublicBasicRtUser deserializeNode:bodyNode];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-								if(xmlStrEqual(bodyNode->name, (const xmlChar *) "arrayOfRgWsPublicFirmActRt_out")) {
-									RgWsPublic_RgWsPublicFirmActRtUserArray *bodyObject = [RgWsPublic_RgWsPublicFirmActRtUserArray deserializeNode:bodyNode];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-								if(xmlStrEqual(bodyNode->name, (const xmlChar *) "pCallSeqId_out")) {
-									NSNumber *bodyObject = [NSNumber deserializeNode:bodyNode];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-								if(xmlStrEqual(bodyNode->name, (const xmlChar *) "pErrorRec_out")) {
-									RgWsPublic_GenWsErrorRtUser *bodyObject = [RgWsPublic_GenWsErrorRtUser deserializeNode:bodyNode];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-								if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) && 
-									xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
-                                    NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                nil];
-									SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-							}
-						}
-						
-						response.bodyParts = responseBodyParts;
-					}
-				}
+            
+            for( ; cur != NULL ; cur = cur->next) {
+                if(cur->type == XML_ELEMENT_NODE) {
+                    
+                    if(xmlStrEqual(cur->name, (const xmlChar *) "Body")) {
+                        cur = cur->children;
+                        
+                        if(cur->type == XML_ELEMENT_NODE) {
+                            
+                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicVersionInfoResponse")) {
+                                
+                                NSMutableArray *responseBodyParts = [NSMutableArray array];
+                                
+                                xmlNodePtr bodyNode;
+                                for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
+                                    if(cur->type == XML_ELEMENT_NODE) {
+                                        if(xmlStrEqual(bodyNode->name, (const xmlChar *) "RgWsPublicBasicRt_out")) {
+                                            RgWsPublic_RgWsPublicBasicRtUser *bodyObject = [RgWsPublic_RgWsPublicBasicRtUser deserializeNode:bodyNode];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                        if(xmlStrEqual(bodyNode->name, (const xmlChar *) "arrayOfRgWsPublicFirmActRt_out")) {
+                                            RgWsPublic_RgWsPublicFirmActRtUserArray *bodyObject = [RgWsPublic_RgWsPublicFirmActRtUserArray deserializeNode:bodyNode];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                        if(xmlStrEqual(bodyNode->name, (const xmlChar *) "pCallSeqId_out")) {
+                                            NSNumber *bodyObject = [NSNumber deserializeNode:bodyNode];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                        if(xmlStrEqual(bodyNode->name, (const xmlChar *) "pErrorRec_out")) {
+                                            RgWsPublic_GenWsErrorRtUser *bodyObject = [RgWsPublic_GenWsErrorRtUser deserializeNode:bodyNode];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                        if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) && 
+                                            xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
+                                            NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                        nil];
+                                            SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                    }
+                                }
+                                
+                                response.bodyParts = responseBodyParts;
+                            }}
+                    }
+                }
 			}
 			
 			xmlFreeDoc(doc);
@@ -2579,33 +2586,41 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 			cur = cur->children;
 			
 			for( ; cur != NULL ; cur = cur->next) {
-				if(cur->type == XML_ELEMENT_NODE) {
-					
-					if(xmlStrEqual(cur->name, (const xmlChar *) "Body")) {
-						NSMutableArray *responseBodyParts = [NSMutableArray array];
-						
-						xmlNodePtr bodyNode;
-						for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
-							if(cur->type == XML_ELEMENT_NODE) {
-								if(xmlStrEqual(bodyNode->name, (const xmlChar *) "result")) {
-									NSString *bodyObject = [NSString deserializeNode:bodyNode];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-								if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) && 
-									xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
-                                    NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                nil];
-									SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
-									//NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-									if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-								}
-							}
-						}
-						
-						response.bodyParts = responseBodyParts;
-					}
-				}
+                
+                if(cur->type == XML_ELEMENT_NODE) {
+                    
+                    if(xmlStrEqual(cur->name, (const xmlChar *) "Body")) {
+                        cur = cur->children;
+                        
+                        if(cur->type == XML_ELEMENT_NODE) {
+                            
+                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicVersionInfoResponse")) {
+                                
+                                NSMutableArray *responseBodyParts = [NSMutableArray array];
+                                
+                                xmlNodePtr bodyNode;
+                                for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
+                                    if(cur->type == XML_ELEMENT_NODE) {
+                                        if(xmlStrEqual(bodyNode->name, (const xmlChar *) "result")) {
+                                            NSString *bodyObject = [NSString deserializeNode:bodyNode];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                        if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) &&
+                                            xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
+                                            NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                        nil];
+                                            SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
+                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                                        }
+                                    }
+                                }
+                                response.bodyParts = responseBodyParts;
+                            }
+                        }
+                    }
+                }
 			}
 			
 			xmlFreeDoc(doc);
