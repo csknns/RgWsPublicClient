@@ -7,20 +7,28 @@
 //
 
 #import "CKNAppDelegate.h"
-#import <RgWsPublic.h>
+#import <RgWsPublicClient/RgWsPublicClient.h>
 
 @implementation CKNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
     
-    RgWsPublicBinding *binding = [RgWsPublic RgWsPublicBinding];
-    [binding setLogXMLInOut:YES];
-    RgWsPublicBindingResponse *rsp =[binding rgWsPublicVersionInfoUsing];
-    NSLog(@"body parts received %lu", (unsigned long)rsp.bodyParts.count);
-    for (id part in rsp.bodyParts) {
-        NSLog(@"%@ %@",[part class], part);
-    }
+    [[RgWsPublicClient sharedInstance] rgWsPublicVersionInfoSuccess:^(NSString *result) {
+           NSLog(@"%@ %@", [result class], result);
+    } failure:^(NSError *error) {
+        NSLog(@"%@ %@", [error class], error);
+    }];
+    
+//    RgWsPublicBinding *binding = [RgWsPublic RgWsPublicBinding];
+//    [binding setLogXMLInOut:YES];
+//    RgWsPublicBindingResponse *rsp =[binding rgWsPublicVersionInfoUsing];
+//    NSLog(@"body parts received %lu", (unsigned long)rsp.bodyParts.count);
+//    for (id part in rsp.bodyParts) {
+//        NSLog(@"%@ %@",[part class], part);
+//    }
+
     // Override point for customization after application launch.
     return YES;
 }

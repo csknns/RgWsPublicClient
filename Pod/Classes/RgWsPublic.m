@@ -2472,7 +2472,7 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
                         
                         if(cur->type == XML_ELEMENT_NODE) {
                             
-                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicVersionInfoResponse")) {
+                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicAfmMethodResponse")) {
                                 
                                 NSMutableArray *responseBodyParts = [NSMutableArray array];
                                 
