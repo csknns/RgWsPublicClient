@@ -2694,7 +2694,7 @@ static RgWsPublicBinding_envelope *RgWsPublicBindingSharedEnvelopeInstance = nil
         
         for(NSString *key in bodyKeys) {
             id body = [bodyElements objectForKey:key];
-            xmlAddChild(bodyNode, [body xmlNodeForDoc:doc elementName:key elementNSPrefix:nil]);
+            xmlAddChild(methodNode, [body xmlNodeForDoc:doc elementName:key elementNSPrefix:nil]);
         }
     }
 	
