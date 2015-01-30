@@ -12,6 +12,8 @@
 @interface RgWsPublicClient : NSObject
 @property (nonatomic) BOOL logXMLPayloadAndHeaders;
 
++ (RgWsPublicClient*)clientWithUsername:(NSString *)username password:(NSString *)password;
+
 + (RgWsPublicClient*)sharedInstance;
 
 - (void)rgWsPublicVersionInfoSuccess:(void (^)(NSString *result))success
@@ -21,8 +23,7 @@
                               Success:(void (^)(RgWsPublic_RgWsPublicBasicRtUser *rgWsPublicBasicRt_out,
                                                 RgWsPublic_RgWsPublicFirmActRtUserArray *arrayOfRgWsPublicFirmActRt_out,
                                                 NSNumber *pCallSeqId_out,
-                                                RgWsPublic_GenWsErrorRtUser *rgWsPublic_GenWsErrorRtUser,
-                                                SOAPFault *pErrorRec_out))success
+                                                RgWsPublic_GenWsErrorRtUser *rgWsPublic_GenWsErrorRtUser))success
                               failure:(void (^)(NSError *error))failure;
 
 @end

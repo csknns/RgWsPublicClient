@@ -255,8 +255,8 @@ SOAPSigner *soapSigner;
 - (void)sendHTTPCallUsingBody:(NSString *)body soapAction:(NSString *)soapAction forOperation:(RgWsPublicBindingOperation *)operation;
 - (void)addCookie:(NSHTTPCookie *)toAdd;
 - (NSString *)MIMEType;
-- (RgWsPublicBindingResponse *)rgWsPublicAfmMethodUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out ;
-- (void)rgWsPublicAfmMethodAsyncUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out  delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
+- (RgWsPublicBindingResponse *)rgWsPublicAfmMethodUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out username:(NSString *)username password:(NSString *)password;
+- (void)rgWsPublicAfmMethodAsyncUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out username:(NSString *)username password:(NSString *)password delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
 - (RgWsPublicBindingResponse *)rgWsPublicVersionInfoUsing;
 - (void)rgWsPublicVersionInfoAsyncUsingDelegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate;
 @end
@@ -281,19 +281,26 @@ SOAPSigner *soapSigner;
 	RgWsPublic_RgWsPublicFirmActRtUserArray * arrayOfRgWsPublicFirmActRt_out;
 	NSNumber * pCallSeqId_out;
 	RgWsPublic_GenWsErrorRtUser * pErrorRec_out;
+    /*UserToken Security Policy Header values*/
+    NSString * username;
+    NSString * password;
 }
 @property (nonatomic, retain) RgWsPublic_RgWsPublicInputRtUser * RgWsPublicInputRt_in;
 @property (nonatomic, retain) RgWsPublic_RgWsPublicBasicRtUser * RgWsPublicBasicRt_out;
 @property (nonatomic, retain) RgWsPublic_RgWsPublicFirmActRtUserArray * arrayOfRgWsPublicFirmActRt_out;
 @property (nonatomic, retain) NSNumber * pCallSeqId_out;
 @property (nonatomic, retain) RgWsPublic_GenWsErrorRtUser * pErrorRec_out;
-- (id)initWithBinding:(RgWsPublicBinding *)aBinding delegate:(id<RgWsPublicBindingResponseDelegate>)aDelegate
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * password;
+- (id)initWithBinding:(RgWsPublicBinding *)aBinding
+             delegate:(id<RgWsPublicBindingResponseDelegate>)aDelegate
 	RgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in
-	RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out
-	arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out
-	pCallSeqId_out:(NSNumber *)aPCallSeqId_out
-	pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
-;
+RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out
+arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out
+       pCallSeqId_out:(NSNumber *)aPCallSeqId_out
+        pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
+             username:(NSString *)aUsername
+             password:(NSString *)aPassword;
 @end
 @interface RgWsPublicBinding_rgWsPublicVersionInfo : RgWsPublicBindingOperation {
 }
@@ -313,4 +320,40 @@ SOAPSigner *soapSigner;
 @property (nonatomic, retain) NSArray *headers;
 @property (nonatomic, retain) NSArray *bodyParts;
 @property (nonatomic, retain) NSError *error;
+@end
+@interface RgWsPublic_RgWsPublicHeaderUsernameToken : NSObject <NSCoding> {
+    /* elements */
+    NSString * username;
+    NSString * password;
+    /* attributes */
+}
+- (NSString *)nsPrefix;
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix;
+- (void)addAttributesToNode:(xmlNodePtr)node;
+- (void)addElementsToNode:(xmlNodePtr)node;
++ (RgWsPublic_RgWsPublicHeaderUsernameToken *)deserializeNode:(xmlNodePtr)cur;
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur;
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur;
+/* elements */
+@property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * password;
+/* attributes */
+- (NSDictionary *)attributes;
+@end
+@interface RgWsPublic_RgWsPublicHeaderSecurity : NSObject <NSCoding> {
+    /* elements */
+    RgWsPublic_RgWsPublicHeaderUsernameToken * usernameToken;
+    /* attributes */
+}
+- (NSString *)nsPrefix;
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix;
+- (void)addAttributesToNode:(xmlNodePtr)node;
+- (void)addElementsToNode:(xmlNodePtr)node;
++ (RgWsPublic_RgWsPublicHeaderSecurity *)deserializeNode:(xmlNodePtr)cur;
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur;
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur;
+/* elements */
+@property (nonatomic, retain) RgWsPublic_RgWsPublicHeaderUsernameToken * usernameToken;
+/* attributes */
+- (NSDictionary *)attributes;
 @end

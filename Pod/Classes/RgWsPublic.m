@@ -2185,7 +2185,7 @@
 {
 	synchronousOperationComplete = YES;
 }
-- (RgWsPublicBindingResponse *)rgWsPublicAfmMethodUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out 
+- (RgWsPublicBindingResponse *)rgWsPublicAfmMethodUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out username:(NSString *)aUsername password:(NSString *)aPassword
 {
 	return [self performSynchronousOperation:[[(RgWsPublicBinding_rgWsPublicAfmMethod*)[RgWsPublicBinding_rgWsPublicAfmMethod alloc] initWithBinding:self delegate:self
 																							RgWsPublicInputRt_in:aRgWsPublicInputRt_in
@@ -2193,9 +2193,11 @@
 																							arrayOfRgWsPublicFirmActRt_out:aArrayOfRgWsPublicFirmActRt_out
 																							pCallSeqId_out:aPCallSeqId_out
 																							pErrorRec_out:aPErrorRec_out
+                                                                                                 username:aUsername
+                                                                                                 password:(NSString *)aPassword
 																							] autorelease]];
 }
-- (void)rgWsPublicAfmMethodAsyncUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out  delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate
+- (void)rgWsPublicAfmMethodAsyncUsingRgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out pCallSeqId_out:(NSNumber *)aPCallSeqId_out pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out username:(NSString *)aUsername password:(NSString *)aPassword delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate
 {
 	[self performAsynchronousOperation: [[(RgWsPublicBinding_rgWsPublicAfmMethod*)[RgWsPublicBinding_rgWsPublicAfmMethod alloc] initWithBinding:self delegate:responseDelegate
 																							 RgWsPublicInputRt_in:aRgWsPublicInputRt_in
@@ -2203,6 +2205,8 @@
 																							 arrayOfRgWsPublicFirmActRt_out:aArrayOfRgWsPublicFirmActRt_out
 																							 pCallSeqId_out:aPCallSeqId_out
 																							 pErrorRec_out:aPErrorRec_out
+                                                                                                  username:aUsername
+                                                                                                  password:(NSString *)aPassword
 																							 ] autorelease]];
 }
 - (RgWsPublicBindingResponse *)rgWsPublicVersionInfoUsing
@@ -2364,22 +2368,29 @@
 @synthesize arrayOfRgWsPublicFirmActRt_out;
 @synthesize pCallSeqId_out;
 @synthesize pErrorRec_out;
+@synthesize username;
+@synthesize password;
+
 - (id)initWithBinding:(RgWsPublicBinding *)aBinding delegate:(id<RgWsPublicBindingResponseDelegate>)responseDelegate
-RgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in
+ RgWsPublicInputRt_in:(RgWsPublic_RgWsPublicInputRtUser *)aRgWsPublicInputRt_in
 RgWsPublicBasicRt_out:(RgWsPublic_RgWsPublicBasicRtUser *)aRgWsPublicBasicRt_out
 arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArrayOfRgWsPublicFirmActRt_out
-pCallSeqId_out:(NSNumber *)aPCallSeqId_out
-pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
+       pCallSeqId_out:(NSNumber *)aPCallSeqId_out
+        pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
+             username:(NSString *)aUsername
+             password:(NSString *)aPassword
 {
-	if((self = [super initWithBinding:aBinding delegate:responseDelegate])) {
-		self.RgWsPublicInputRt_in = aRgWsPublicInputRt_in;
-		self.RgWsPublicBasicRt_out = aRgWsPublicBasicRt_out;
-		self.arrayOfRgWsPublicFirmActRt_out = aArrayOfRgWsPublicFirmActRt_out;
-		self.pCallSeqId_out = aPCallSeqId_out;
-		self.pErrorRec_out = aPErrorRec_out;
-	}
-	
-	return self;
+    if((self = [super initWithBinding:aBinding delegate:responseDelegate])) {
+        self.RgWsPublicInputRt_in = aRgWsPublicInputRt_in;
+        self.RgWsPublicBasicRt_out = aRgWsPublicBasicRt_out;
+        self.arrayOfRgWsPublicFirmActRt_out = aArrayOfRgWsPublicFirmActRt_out;
+        self.pCallSeqId_out = aPCallSeqId_out;
+        self.pErrorRec_out = aPErrorRec_out;
+        self.username = aUsername;
+        self.password = aPassword;
+    }
+    
+    return self;
 }
 - (void)dealloc
 {
@@ -2388,6 +2399,8 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 	if(arrayOfRgWsPublicFirmActRt_out != nil) [arrayOfRgWsPublicFirmActRt_out release];
 	if(pCallSeqId_out != nil) [pCallSeqId_out release];
 	if(pErrorRec_out != nil) [pErrorRec_out release];
+    if(username != nil) [username release];
+    if(password != nil) [password release];
 	
 	[super dealloc];
 }
@@ -2400,6 +2413,15 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
 	
 	NSMutableDictionary *headerElements = nil;
 	headerElements = [NSMutableDictionary dictionary];
+    //set the security headers for the UsernameToken Policy
+    if((username.length > 0) && (password.length > 0)) {
+        RgWsPublic_RgWsPublicHeaderUsernameToken *usernameToken = [RgWsPublic_RgWsPublicHeaderUsernameToken new];
+        usernameToken.username = self.username;
+        usernameToken.password = self.password;
+        RgWsPublic_RgWsPublicHeaderSecurity *security = [RgWsPublic_RgWsPublicHeaderSecurity new];
+        security.usernameToken = usernameToken;
+        [headerElements setObject:security forKey:@"Security"];
+    }
 	
 	NSMutableDictionary *bodyElements = nil;
 	NSMutableArray *bodyKeys = nil;
@@ -2472,11 +2494,11 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
                         
                         if(cur->type == XML_ELEMENT_NODE) {
                             
-                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicAfmMethodResponse")) {
+                            NSMutableArray *responseBodyParts = [NSMutableArray array];
+                            
+                            xmlNodePtr bodyNode = cur;
+                            if(xmlStrEqual(bodyNode->name, (const xmlChar *) "rgWsPublicAfmMethodResponse")) {
                                 
-                                NSMutableArray *responseBodyParts = [NSMutableArray array];
-                                
-                                xmlNodePtr bodyNode;
                                 for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
                                     if(cur->type == XML_ELEMENT_NODE) {
                                         if(xmlStrEqual(bodyNode->name, (const xmlChar *) "RgWsPublicBasicRt_out")) {
@@ -2499,22 +2521,22 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
                                             //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
                                             if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
                                         }
-                                        if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) && 
-                                            xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
-                                            NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                        nil];
-                                            SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
-                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-                                        }
                                     }
                                 }
-                                
-                                response.bodyParts = responseBodyParts;
-                            }}
+                            }
+                            else if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) &&
+                                                                        xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
+                                NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                            nil];
+                                SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
+                                //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                            }
+                            response.bodyParts = responseBodyParts;
+                        }
                     }
                 }
-			}
+            }
 			
 			xmlFreeDoc(doc);
 		}
@@ -2594,11 +2616,11 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
                         
                         if(cur->type == XML_ELEMENT_NODE) {
                             
-                            if(xmlStrEqual(cur->name, (const xmlChar *) "rgWsPublicVersionInfoResponse")) {
+                            NSMutableArray *responseBodyParts = [NSMutableArray array];
+                            
+                            xmlNodePtr bodyNode = cur;
+                            if(xmlStrEqual(bodyNode->name, (const xmlChar *) "rgWsPublicVersionInfoResponse")) {
                                 
-                                NSMutableArray *responseBodyParts = [NSMutableArray array];
-                                
-                                xmlNodePtr bodyNode;
                                 for(bodyNode=cur->children ; bodyNode != NULL ; bodyNode = bodyNode->next) {
                                     if(cur->type == XML_ELEMENT_NODE) {
                                         if(xmlStrEqual(bodyNode->name, (const xmlChar *) "result")) {
@@ -2606,18 +2628,18 @@ pErrorRec_out:(RgWsPublic_GenWsErrorRtUser *)aPErrorRec_out
                                             //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
                                             if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
                                         }
-                                        if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) &&
-                                            xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
-                                            NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                                        nil];
-                                            SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
-                                            //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
-                                            if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
-                                        }
                                     }
                                 }
-                                response.bodyParts = responseBodyParts;
                             }
+                            else if ((bodyNode->ns != nil && xmlStrEqual(bodyNode->ns->prefix, cur->ns->prefix)) &&
+                                     xmlStrEqual(bodyNode->name, (const xmlChar *) "Fault")) {
+                                NSDictionary *exceptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                            nil];
+                                SOAPFault *bodyObject = [SOAPFault deserializeNode:bodyNode expectedExceptions:exceptions];
+                                //NSAssert1(bodyObject != nil, @"Errors while parsing body %s", bodyNode->name);
+                                if (bodyObject != nil) [responseBodyParts addObject:bodyObject];
+                            }
+                            response.bodyParts = responseBodyParts;
                         }
                     }
                 }
@@ -2728,5 +2750,383 @@ static RgWsPublicBinding_envelope *RgWsPublicBindingSharedEnvelopeInstance = nil
 	self.bodyParts = nil;
 	self.error = nil;	
 	[super dealloc];
+}
+@end
+@implementation RgWsPublic_RgWsPublicHeaderUsernameToken
+- (id)init
+{
+    if((self = [super init])) {
+        username = 0;
+        password = 0;
+    }
+    
+    return self;
+}
+- (void)dealloc
+{
+    if(username != nil) [username release];
+    if(password != nil) [password release];
+    
+    [super dealloc];
+}
+- (NSString *)nsPrefix
+{
+    return @"wsse";
+}
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix
+{
+    NSString *nodeName = nil;
+    if(elNSPrefix != nil && [elNSPrefix length] > 0)
+    {
+        nodeName = [NSString stringWithFormat:@"%@:%@", elNSPrefix, elName];
+    }
+    else
+    {
+        nodeName = [NSString stringWithFormat:@"%@:%@", @"wsse", elName];
+    }
+    xmlNodePtr node = xmlNewDocNode(doc, NULL, [nodeName xmlString], NULL);
+//    xmlNodePtr root = xmlDocGetRootElement(doc);
+//    xmlNsPtr xsi = xmlSearchNs(doc, root, (const xmlChar*)"xsi");
+//    xmlSetNsProp(node, xsi, (const xmlChar*)"type", (const xmlChar*)"RgWsPublic:RgWsPublicBasicRtUser");
+    // BUGBUG: ASP.NET compatibility: need to add xmlns attribute or else parameters don't make it.  Is there a good
+    // place to do this so that we don't have to redo this whenever we autogenerate new code?
+//    xmlNsPtr xmlns = xmlSearchNs(doc, root, (const xmlChar*)"xmlns");
+//    xmlSetNsProp(node, xmlns, (const xmlChar*)"xmlns", (const xmlChar*)"http://myflightbook.com/");
+    
+    
+    [self addAttributesToNode:node];
+    
+    [self addElementsToNode:node];
+    
+    return node;
+}
+- (void)addAttributesToNode:(xmlNodePtr)node
+{
+    
+}
+- (void)addElementsToNode:(xmlNodePtr)node
+{
+    
+    if(self.username != 0) {
+        xmlAddChild(node, [self.username xmlNodeForDoc:node->doc elementName:@"Username" elementNSPrefix:@"wsse"]);
+    }
+    if(self.password != 0) {
+        xmlAddChild(node, [self.password xmlNodeForDoc:node->doc elementName:@"Password" elementNSPrefix:@"wsse"]);
+    }
+}
+/* elements */
+@synthesize username;
+@synthesize password;
+/* attributes */
+- (NSDictionary *)attributes
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    
+    return attributes;
+}
++ (RgWsPublic_RgWsPublicHeaderUsernameToken *)deserializeNode:(xmlNodePtr)cur
+{
+    RgWsPublic_RgWsPublicHeaderUsernameToken *newObject = [[RgWsPublic_RgWsPublicHeaderUsernameToken new] autorelease];
+    
+    [newObject deserializeAttributesFromNode:cur];
+    [newObject deserializeElementsFromNode:cur];
+    
+    return newObject;
+}
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur
+{
+}
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur
+{
+    
+    for( cur = cur->children ; cur != NULL ; cur = cur->next ) {
+        if(cur->type == XML_ELEMENT_NODE) {
+            xmlChar *elementText = xmlNodeListGetString(cur->doc, cur->children, 1);
+            NSString *elementString = nil;
+            
+            if(elementText != NULL) {
+                elementString = [NSString stringWithCString:(char*)elementText encoding:NSUTF8StringEncoding];
+                [elementString self]; // avoid compiler warning for unused var
+                xmlFree(elementText);
+            }
+            if(xmlStrEqual(cur->name, (const xmlChar *) "Username")) {
+                
+                Class elementClass = nil;
+                xmlChar *instanceType = xmlGetNsProp(cur, (const xmlChar *) "type", (const xmlChar *) "http://www.w3.org/2001/XMLSchema-instance");
+                if(instanceType == NULL) {
+                    elementClass = [NSString class];
+                } else {
+                    NSString *elementTypeString = [NSString stringWithCString:(char*)instanceType encoding:NSUTF8StringEncoding];
+                    
+                    NSArray *elementTypeArray = [elementTypeString componentsSeparatedByString:@":"];
+                    
+                    NSString *elementClassString = nil;
+                    if([elementTypeArray count] > 1) {
+                        NSString *prefix = [elementTypeArray objectAtIndex:0];
+                        NSString *localName = [elementTypeArray objectAtIndex:1];
+                        
+                        xmlNsPtr elementNamespace = xmlSearchNs(cur->doc, cur, [prefix xmlString]);
+                        
+                        NSString *standardPrefix = [[USGlobals sharedInstance].wsdlStandardNamespaces objectForKey:[NSString stringWithCString:(char*)elementNamespace->href encoding:NSUTF8StringEncoding]];
+                        
+                        elementClassString = [NSString stringWithFormat:@"%@_%@", standardPrefix, localName];
+                    } else {
+                        elementClassString = [elementTypeString stringByReplacingOccurrencesOfString:@":" withString:@"_" options:0 range:NSMakeRange(0, [elementTypeString length])];
+                    }
+                    
+                    elementClass = NSClassFromString(elementClassString);
+                    xmlFree(instanceType);
+                }
+                
+                id newChild = [elementClass deserializeNode:cur];
+                
+                self.username = newChild;
+            }
+            if(xmlStrEqual(cur->name, (const xmlChar *) "Password")) {
+                
+                Class elementClass = nil;
+                xmlChar *instanceType = xmlGetNsProp(cur, (const xmlChar *) "type", (const xmlChar *) "http://www.w3.org/2001/XMLSchema-instance");
+                if(instanceType == NULL) {
+                    elementClass = [NSString class];
+                } else {
+                    NSString *elementTypeString = [NSString stringWithCString:(char*)instanceType encoding:NSUTF8StringEncoding];
+                    
+                    NSArray *elementTypeArray = [elementTypeString componentsSeparatedByString:@":"];
+                    
+                    NSString *elementClassString = nil;
+                    if([elementTypeArray count] > 1) {
+                        NSString *prefix = [elementTypeArray objectAtIndex:0];
+                        NSString *localName = [elementTypeArray objectAtIndex:1];
+                        
+                        xmlNsPtr elementNamespace = xmlSearchNs(cur->doc, cur, [prefix xmlString]);
+                        
+                        NSString *standardPrefix = [[USGlobals sharedInstance].wsdlStandardNamespaces objectForKey:[NSString stringWithCString:(char*)elementNamespace->href encoding:NSUTF8StringEncoding]];
+                        
+                        elementClassString = [NSString stringWithFormat:@"%@_%@", standardPrefix, localName];
+                    } else {
+                        elementClassString = [elementTypeString stringByReplacingOccurrencesOfString:@":" withString:@"_" options:0 range:NSMakeRange(0, [elementTypeString length])];
+                    }
+                    
+                    elementClass = NSClassFromString(elementClassString);
+                    xmlFree(instanceType);
+                }
+                
+                id newChild = [elementClass deserializeNode:cur];
+                
+                self.password = newChild;
+            }
+        }
+    }
+}
+/* NSCoder functions taken from:
+ * http://davedelong.com/blog/2009/04/13/aspect-oriented-programming-objective-c
+ */
+- (id) initWithCoder:(NSCoder *)decoder {
+    if ([super respondsToSelector:@selector(initWithCoder:)] && ![self isKindOfClass:[super class]]) {
+        self = [super performSelector:@selector(initWithCoder:) withObject:decoder];
+    } else {
+        self = [super init];
+    }
+    if (self == nil) { return nil; }
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    unsigned int numIvars = 0;
+    Ivar * ivars = class_copyIvarList([self class], &numIvars);
+    for(int i = 0; i < numIvars; i++) {
+        Ivar thisIvar = ivars[i];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
+        id value = [decoder decodeObjectForKey:key];
+        if (value == nil) { value = [NSNumber numberWithFloat:0.0]; }
+        [self setValue:value forKey:key];
+    }
+    if (numIvars > 0) { free(ivars); }
+    [pool drain];
+    return self;
+}
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    if ([super respondsToSelector:@selector(encodeWithCoder:)] && ![self isKindOfClass:[super class]]) {
+        [super performSelector:@selector(encodeWithCoder:) withObject:encoder];
+    }
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    unsigned int numIvars = 0;
+    Ivar * ivars = class_copyIvarList([self class], &numIvars);
+    for (int i = 0; i < numIvars; i++) {
+        Ivar thisIvar = ivars[i];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
+        id value = [self valueForKey:key];
+        [encoder encodeObject:value forKey:key];
+    }
+    if (numIvars > 0) { free(ivars); }
+    [pool drain];
+}
+@end
+@implementation RgWsPublic_RgWsPublicHeaderSecurity
+- (id)init
+{
+    if((self = [super init])) {
+        usernameToken = 0;
+    }
+    
+    return self;
+}
+- (void)dealloc
+{
+    if(usernameToken != nil) [usernameToken release];
+    
+    [super dealloc];
+}
+- (NSString *)nsPrefix
+{
+    return @"wsse";
+}
+- (xmlNodePtr)xmlNodeForDoc:(xmlDocPtr)doc elementName:(NSString *)elName elementNSPrefix:(NSString *)elNSPrefix
+{
+    NSString *nodeName = nil;
+    if(elNSPrefix != nil && [elNSPrefix length] > 0)
+    {
+        nodeName = [NSString stringWithFormat:@"%@:%@", elNSPrefix, elName];
+    }
+    else
+    {
+        nodeName = [NSString stringWithFormat:@"%@:%@", @"wsse", elName];
+    }
+    xmlNodePtr node = xmlNewDocNode(doc, NULL, [nodeName xmlString], NULL);
+    xmlNodePtr root = xmlDocGetRootElement(doc);
+//    xmlNsPtr xsi = xmlSearchNs(doc, root, (const xmlChar*)"xsi");
+//    xmlSetNsProp(node, xsi, (const xmlChar*)"type", (const xmlChar*)"RgWsPublic:RgWsPublicBasicRtUser");
+    // BUGBUG: ASP.NET compatibility: need to add xmlns attribute or else parameters don't make it.  Is there a good
+    // place to do this so that we don't have to redo this whenever we autogenerate new code?
+    xmlNsPtr xmlns = xmlSearchNs(doc, root, (const xmlChar*)"xmlns");
+    xmlSetNsProp(node, xmlns, (const xmlChar*)"xmlns:wsse", (const xmlChar*)"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
+//    xmlNsPtr wsseNs = xmlNewNs(root, (const xmlChar*)"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd", (const xmlChar*)"wsse");
+//    xmlSetNs(node, wsseNs);
+    
+    [self addAttributesToNode:node];
+    
+    [self addElementsToNode:node];
+    
+    return node;
+}
+- (void)addAttributesToNode:(xmlNodePtr)node
+{
+    
+}
+- (void)addElementsToNode:(xmlNodePtr)node
+{
+    
+    if(self.usernameToken != 0) {
+        xmlAddChild(node, [self.usernameToken xmlNodeForDoc:node->doc elementName:@"UsernameToken" elementNSPrefix:@"wsse"]);
+    }
+}
+/* elements */
+@synthesize usernameToken;
+/* attributes */
+- (NSDictionary *)attributes
+{
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    
+    return attributes;
+}
++ (RgWsPublic_RgWsPublicHeaderSecurity *)deserializeNode:(xmlNodePtr)cur
+{
+    RgWsPublic_RgWsPublicHeaderSecurity *newObject = [[RgWsPublic_RgWsPublicHeaderSecurity new] autorelease];
+    
+    [newObject deserializeAttributesFromNode:cur];
+    [newObject deserializeElementsFromNode:cur];
+    
+    return newObject;
+}
+- (void)deserializeAttributesFromNode:(xmlNodePtr)cur
+{
+}
+- (void)deserializeElementsFromNode:(xmlNodePtr)cur
+{
+    
+    for( cur = cur->children ; cur != NULL ; cur = cur->next ) {
+        if(cur->type == XML_ELEMENT_NODE) {
+            xmlChar *elementText = xmlNodeListGetString(cur->doc, cur->children, 1);
+            NSString *elementString = nil;
+            
+            if(elementText != NULL) {
+                elementString = [NSString stringWithCString:(char*)elementText encoding:NSUTF8StringEncoding];
+                [elementString self]; // avoid compiler warning for unused var
+                xmlFree(elementText);
+            }
+            if(xmlStrEqual(cur->name, (const xmlChar *) "UsernameToken")) {
+                
+                Class elementClass = nil;
+                xmlChar *instanceType = xmlGetNsProp(cur, (const xmlChar *) "type", (const xmlChar *) "http://www.w3.org/2001/XMLSchema-instance");
+                if(instanceType == NULL) {
+                    elementClass = [NSString class];
+                } else {
+                    NSString *elementTypeString = [NSString stringWithCString:(char*)instanceType encoding:NSUTF8StringEncoding];
+                    
+                    NSArray *elementTypeArray = [elementTypeString componentsSeparatedByString:@":"];
+                    
+                    NSString *elementClassString = nil;
+                    if([elementTypeArray count] > 1) {
+                        NSString *prefix = [elementTypeArray objectAtIndex:0];
+                        NSString *localName = [elementTypeArray objectAtIndex:1];
+                        
+                        xmlNsPtr elementNamespace = xmlSearchNs(cur->doc, cur, [prefix xmlString]);
+                        
+                        NSString *standardPrefix = [[USGlobals sharedInstance].wsdlStandardNamespaces objectForKey:[NSString stringWithCString:(char*)elementNamespace->href encoding:NSUTF8StringEncoding]];
+                        
+                        elementClassString = [NSString stringWithFormat:@"%@_%@", standardPrefix, localName];
+                    } else {
+                        elementClassString = [elementTypeString stringByReplacingOccurrencesOfString:@":" withString:@"_" options:0 range:NSMakeRange(0, [elementTypeString length])];
+                    }
+                    
+                    elementClass = NSClassFromString(elementClassString);
+                    xmlFree(instanceType);
+                }
+                
+                id newChild = [elementClass deserializeNode:cur];
+                
+                self.usernameToken = newChild;
+            }
+        }
+    }
+}
+/* NSCoder functions taken from: 
+ * http://davedelong.com/blog/2009/04/13/aspect-oriented-programming-objective-c
+ */
+- (id) initWithCoder:(NSCoder *)decoder {
+    if ([super respondsToSelector:@selector(initWithCoder:)] && ![self isKindOfClass:[super class]]) {
+        self = [super performSelector:@selector(initWithCoder:) withObject:decoder];
+    } else {
+        self = [super init];
+    }
+    if (self == nil) { return nil; }
+    
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    unsigned int numIvars = 0;
+    Ivar * ivars = class_copyIvarList([self class], &numIvars);
+    for(int i = 0; i < numIvars; i++) {
+        Ivar thisIvar = ivars[i];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
+        id value = [decoder decodeObjectForKey:key];
+        if (value == nil) { value = [NSNumber numberWithFloat:0.0]; }
+        [self setValue:value forKey:key];
+    }
+    if (numIvars > 0) { free(ivars); }
+    [pool drain];
+    return self;
+}
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    if ([super respondsToSelector:@selector(encodeWithCoder:)] && ![self isKindOfClass:[super class]]) {
+        [super performSelector:@selector(encodeWithCoder:) withObject:encoder];
+    }
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    unsigned int numIvars = 0;
+    Ivar * ivars = class_copyIvarList([self class], &numIvars);
+    for (int i = 0; i < numIvars; i++) {
+        Ivar thisIvar = ivars[i];
+        NSString * key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];
+        id value = [self valueForKey:key];
+        [encoder encodeObject:value forKey:key];
+    }
+    if (numIvars > 0) { free(ivars); }
+    [pool drain];
 }
 @end
