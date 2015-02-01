@@ -6,4 +6,3 @@
 //  Copyright (c) 2014 Christos Koninis. All rights reserved.
 //
 
-${TEST_EXAMPLE}
