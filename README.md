@@ -1,6 +1,6 @@
 # RgWsPublicClient
 
-[![CI Status](http://img.shields.io/travis/Christos Koninis/RgWsPublicClient.svg?style=flat)](https://travis-ci.org/Christos Koninis/RgWsPublicClient)
+[![CI Status](http://img.shields.io/travis/csknns/RgWsPublicClient.svg?style=flat)](https://travis-ci.org/csknns/RgWsPublicClient)
 [![Version](https://img.shields.io/cocoapods/v/RgWsPublicClient.svg?style=flat)](http://cocoadocs.org/docsets/RgWsPublicClient)
 [![License](https://img.shields.io/cocoapods/l/RgWsPublicClient.svg?style=flat)](http://cocoadocs.org/docsets/RgWsPublicClient)
 [![Platform](https://img.shields.io/cocoapods/p/RgWsPublicClient.svg?style=flat)](http://cocoadocs.org/docsets/RgWsPublicClient)
