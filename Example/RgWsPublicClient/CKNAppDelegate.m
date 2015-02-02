@@ -14,25 +14,40 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    //initialise the client with proper username and password
+    [RgWsPublicClient clientWithUsername:@"<username>" password:@"<password>"];
     
-    [[RgWsPublicClient sharedInstance] rgWsPublicVersionInfoSuccess:^(NSString *result) {
-           NSLog(@"%@ %@", [result class], result);
-    } failure:^(NSError *error) {
-        NSLog(@"%@ %@", [error class], error);
-    }];
+    //calling rgWsPublicAfmMethod (no username/password required)
     
-//    RgWsPublicBinding *binding = [RgWsPublic RgWsPublicBinding];
-//    [binding setLogXMLInOut:YES];
-//    RgWsPublicBindingResponse *rsp =[binding rgWsPublicVersionInfoUsing];
-//    NSLog(@"body parts received %lu", (unsigned long)rsp.bodyParts.count);
-//    for (id part in rsp.bodyParts) {
-//        NSLog(@"%@ %@",[part class], part);
-//    }
-
-    // Override point for customization after application launch.
+//    [[RgWsPublicClient sharedInstance] rgWsPublicVersionInfoSuccess:^(NSString *result) {
+//        NSLog(@"%@ %@", [result class], result);
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@ %@", [error class], [error localizedDescription]);
+    //    }];
+    
+    //calling rgWsPublicVersionInfo (must have valid username/password)
+    
+//    [[RgWsPublicClient sharedInstance]
+//     rgWsPublicAfmMethodCallForAfm:@"123456789"
+//     Success:^(RgWsPublic_RgWsPublicBasicRtUser *rgWsPublicBasicRt_out,
+//               RgWsPublic_RgWsPublicFirmActRtUserArray *arrayOfRgWsPublicFirmActRt_out,
+//               NSNumber *pCallSeqId_out,
+//               RgWsPublic_GenWsErrorRtUser *rgWsPublic_GenWsErrorRtUser) {
+//         
+//         NSLog(@"onomasia    : %@", rgWsPublicBasicRt_out.onomasia);
+//         NSLog(@"doyDescr    : %@", rgWsPublicBasicRt_out.doyDescr);
+//         NSLog(@"commerTitle : %@", rgWsPublicBasicRt_out.commerTitle);
+//         
+//         for (RgWsPublic_RgWsPublicFirmActRtUser *user in arrayOfRgWsPublicFirmActRt_out.RgWsPublicFirmActRtUser) {
+//             NSLog(@"firmActDescr: %@ %@", user.firmActKindDescr, user.firmActDescr);
+//         }
+//     } failure:^(NSError *error) {
+//         NSLog(@"%@ %@", [error class], [error localizedDescription]);
+//     }];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

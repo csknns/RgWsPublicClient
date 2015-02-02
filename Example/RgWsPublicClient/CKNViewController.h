@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CKNViewController : UIViewController
+@interface CKNViewController : UIViewController<UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextField *AFMTextField;
+
+- (IBAction)fetchInformation:(UITextField *)sender;
 @end
