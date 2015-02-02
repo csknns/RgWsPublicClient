@@ -90,6 +90,7 @@ static RgWsPublicClient *_sharedInstance = nil;
     [binding setLogXMLInOut:_logXMLPayloadAndHeaders];
     
     RgWsPublic_RgWsPublicInputRtUser *rgWsPublic_RgWsPublicInputRtUser = [RgWsPublic_RgWsPublicInputRtUser new];
+    //TODO: add support for afmCalleBy
 //    rgWsPublic_RgWsPublicInputRtUser.afmCalledBy = @"";
     rgWsPublic_RgWsPublicInputRtUser.afmCalledFor = afm;
     

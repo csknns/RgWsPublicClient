@@ -2573,7 +2573,7 @@ arrayOfRgWsPublicFirmActRt_out:(RgWsPublic_RgWsPublicFirmActRtUserArray *)aArray
 	NSMutableArray *bodyKeys = nil;
 	bodyElements = [NSMutableDictionary dictionary];
 	bodyKeys = [NSMutableArray array];
-	id obj = nil;
+//	id obj = nil;
 	
 	NSString *operationXMLString = [envelope serializedFormUsingHeaderElements:headerElements bodyElements:bodyElements bodyKeys:bodyKeys method:@"rgWsPublicVersionInfo"];
 	operationXMLString = binding.soapSigner ? [binding.soapSigner signRequest:operationXMLString] : operationXMLString;
