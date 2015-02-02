@@ -20,7 +20,7 @@ it, simply add the following line to your Podfile:
 
 ## Author
 
-Christos Koninis, undergodguard@gmail.com
+Christos Koninis, christos.koninis@gmail.com
 
 ## License
 

@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## RgWsPublicClient
 
-Copyright (c) 2015 Christos Koninis <undergodguard@gmail.com>
+Copyright (c) 2015 Christos Koninis <christos.koninis@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
