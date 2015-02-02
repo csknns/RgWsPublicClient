@@ -1,0 +1,14 @@
+PODS:
+  - RgWsPublicClient (0.1.0)
+
+DEPENDENCIES:
+  - RgWsPublicClient (from `../`)
+
+EXTERNAL SOURCES:
+  RgWsPublicClient:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RgWsPublicClient: 2a6c97d83bb88aac95f180e0605ce32a3fcea480
+
+COCOAPODS: 0.35.0
