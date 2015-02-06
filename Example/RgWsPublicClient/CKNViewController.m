@@ -51,7 +51,7 @@
     [sender resignFirstResponder];
     [self disableControls];
     
-    typeof (self) weakSelf = self;
+    __weak typeof (self) weakSelf = self;
     [[RgWsPublicClient sharedInstance] rgWsPublicAfmMethodCallForAfm:sender.text Success:^(RgWsPublic_RgWsPublicBasicRtUser *rgWsPublicBasicRt_out, RgWsPublic_RgWsPublicFirmActRtUserArray *arrayOfRgWsPublicFirmActRt_out, NSNumber *pCallSeqId_out, RgWsPublic_GenWsErrorRtUser *rgWsPublic_GenWsErrorRtUser) {
         typeof (self) selfRef = weakSelf;
         NSDateFormatter *format = [[NSDateFormatter alloc] init];

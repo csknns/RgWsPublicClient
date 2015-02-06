@@ -1,5 +1,7 @@
 PODS:
-  - RgWsPublicClient (0.1.0)
+  - RgWsPublicClient (0.1.0):
+    - RgWsPublicClient/no-arc (= 0.1.0)
+  - RgWsPublicClient/no-arc (0.1.0)
 
 DEPENDENCIES:
   - RgWsPublicClient (from `../`)
@@ -9,6 +11,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  RgWsPublicClient: 2a6c97d83bb88aac95f180e0605ce32a3fcea480
+  RgWsPublicClient: c4c4af43ec3d0c188a2bb2d1ef49741959002553
 
 COCOAPODS: 0.35.0
