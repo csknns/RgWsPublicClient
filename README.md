@@ -80,7 +80,7 @@ then import the client `#import <RgWsPublicClient/RgWsPublicClient.h>` in your s
 * Drag the files from RgWsPublicClient/Pod/Classes to you project
 * import the RgWsPublicClient.h `#import <RgWsPublicClient/RgWsPublicClient.h>` 
 * add the -fno-objc-arc flag for all files **except** RgWsPublicClient.m
-
+* add "/usr/include/libxml2" in Header Search Paths in the Build setting of the project
 
 ## Author
 
