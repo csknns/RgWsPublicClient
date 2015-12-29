@@ -19,6 +19,28 @@ or clone the repo, and run:
 
 from the Example directory first. Then include the client `#import <RgWsPublicClient/RgWsPublicClient.h>` in your source file.
 
+### Apple transport security
+
+Starting in iOS 9.0, a new security feature called ATS(Apple transport security) requires the application to make HTTPS connection that follow specific minimum security standards, or declare in your plist file specific exceptions. Unfortunately the server of the service endpoint supports TLSv1, which is not consider strong and the calls fail with an error like `Error Domain=NSURLErrorDomain Code=-1200 "An SSL error has occurred and a secure connection to the server cannot be made."`. If your application links iOS 9.0 SDK or later then you must add to your plist file the following:
+
+```
+<key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>www1.gsis.gr</key>
+            <dict>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <false/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+            </dict>
+        </dict>
+    </dict>
+```
+
 ### Example
 
 * Initialise the client:
@@ -47,11 +69,11 @@ Then grab the shared instance anywhere and execute the method you need
                RgWsPublic_RgWsPublicFirmActRtUserArray *arrayOfRgWsPublicFirmActRt_out,
                NSNumber *pCallSeqId_out,
                RgWsPublic_GenWsErrorRtUser *rgWsPublic_GenWsErrorRtUser) {
-         
+
          NSLog(@"onomasia    : %@", rgWsPublicBasicRt_out.onomasia);
          NSLog(@"doyDescr    : %@", rgWsPublicBasicRt_out.doyDescr);
          NSLog(@"commerTitle : %@", rgWsPublicBasicRt_out.commerTitle);
-         
+
          for (RgWsPublic_RgWsPublicFirmActRtUser *user in arrayOfRgWsPublicFirmActRt_out.RgWsPublicFirmActRtUser) {
              NSLog(@"firmActDescr: %@ %@", user.firmActKindDescr, user.firmActDescr);
          }
@@ -78,7 +100,7 @@ then import the client `#import <RgWsPublicClient/RgWsPublicClient.h>` in your s
 
 ### Manually
 * Drag the files from RgWsPublicClient/Pod/Classes to you project
-* import the RgWsPublicClient.h `#import <RgWsPublicClient/RgWsPublicClient.h>` 
+* import the RgWsPublicClient.h `#import <RgWsPublicClient/RgWsPublicClient.h>`
 * add the -fno-objc-arc flag for all files **except** RgWsPublicClient.m
 * add "/usr/include/libxml2" in Header Search Paths in the Build setting of the project
 
@@ -89,4 +111,3 @@ Christos Koninis, christos.koninis@gmail.com
 ## License
 
 RgWsPublicClient is available under the MIT license. See the LICENSE file for more info.
-
