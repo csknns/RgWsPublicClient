@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/RgWsPublicClient.svg?style=flat)](http://cocoadocs.org/docsets/RgWsPublicClient)
 [![Platform](https://img.shields.io/cocoapods/p/RgWsPublicClient.svg?style=flat)](http://cocoadocs.org/docsets/RgWsPublicClient)
 
-**RgWsPublicClient** is an Objective-C client for accessing the [new web service](http://www.gsis.gr/gsis/info/gsis_site/PublicIssue/wnsp/wnsp_pages/wnsp.html) provided by [GSIS](http://www.gsis.gr/gsis/info/gsis_site/PublicIssue/wnsp/wnsp_pages/wnsp.html) for physical persons and legal entities. The new webservice provides two methods, one for retrieving the service's version information and the second for retrieving information regarding a requested VAT(A.F.M.). The latter requires authentication using the UsernameToken Extensions of WSS(see [Web Services Security UsernameToken Profile](http://docs.oasis-open.org/wss/v1.1/wss-v1.1-spec-pr-UsernameTokenProfile-01.htm)). The project has a simple block-based client that provides two methods (corresponding to the two web services) with error checking and handling for all layers (transport, application), and an example Xcode project that uses the client.
+**RgWsPublicClient** is an Objective-C client for accessing the [new web service](http://www.gsis.gr/gsis/info/gsis_site/PublicIssue/wnsp/wnsp_pages/wnsp.html) provided by [GSIS](http://www.gsis.gr/gsis/info/gsis_site/PublicIssue/wnsp/wnsp_pages/wnsp.html) for physical persons and legal entities. The new webservice provides two methods, one for retrieving the service's version information and the second for retrieving information regarding a requested VAT(A.F.M.). The latter requires authentication using the UsernameToken Extensions of WSS(see [Web Services Security UsernameToken Profile](http://docs.oasis-open.org/wss/v1.1/wss-v1.1-spec-pr-UsernameTokenProfile-01.htm)). The project has a simple block-based client that provides two methods (corresponding to the two web service operations) with error checking and handling for all layers (transport, application), and an example Xcode project that uses the client.
 
 ## Usage
 
@@ -80,7 +80,7 @@ then import the client `#import <RgWsPublicClient/RgWsPublicClient.h>` in your s
 * Drag the files from RgWsPublicClient/Pod/Classes to you project
 * import the RgWsPublicClient.h `#import <RgWsPublicClient/RgWsPublicClient.h>` 
 * add the -fno-objc-arc flag for all files **except** RgWsPublicClient.m
-
+* add "/usr/include/libxml2" in Header Search Paths in the Build setting of the project
 
 ## Author
 

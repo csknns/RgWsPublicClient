@@ -10,11 +10,11 @@
 #define COCOAPODS_POD_AVAILABLE_RgWsPublicClient
 #define COCOAPODS_VERSION_MAJOR_RgWsPublicClient 0
 #define COCOAPODS_VERSION_MINOR_RgWsPublicClient 1
-#define COCOAPODS_VERSION_PATCH_RgWsPublicClient 0
+#define COCOAPODS_VERSION_PATCH_RgWsPublicClient 1
 
 // RgWsPublicClient/no-arc
 #define COCOAPODS_POD_AVAILABLE_RgWsPublicClient_no_arc
 #define COCOAPODS_VERSION_MAJOR_RgWsPublicClient_no_arc 0
 #define COCOAPODS_VERSION_MINOR_RgWsPublicClient_no_arc 1
-#define COCOAPODS_VERSION_PATCH_RgWsPublicClient_no_arc 0
+#define COCOAPODS_VERSION_PATCH_RgWsPublicClient_no_arc 1
 
