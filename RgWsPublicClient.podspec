@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author           = { "Christos Koninis" => "christos.koninis@gmail.com" }
   s.source           = { :git => "https://github.com/csknns/RgWsPublicClient.git", :tag => 'v0.1.1' }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = ['Pod/Classes/RgWsPublicClient.{m,h}']
   s.xcconfig = {'HEADER_SEARCH_PATHS' => '"/usr/include/libxml2"'}
@@ -27,9 +27,5 @@ Pod::Spec.new do |s|
         sp.source_files = ['Pod/Classes/NSDate+ISO8601Parsing.{m,h}', 'Pod/Classes/NSDate+ISO8601Unparsing.{m,h}', 'Pod/Classes/RgWsPublic.{m,h}', 'Pod/Classes/USAdditions.{m,h}', 'Pod/Classes/USGlobals.{m,h}', 'Pod/Classes/xsd.{m,h}']
         sp.requires_arc = false
     end
-
-  s.resource_bundles = {
-    'RgWsPublicClient' => ['Pod/Assets/*.png']
-  }
 
 end
