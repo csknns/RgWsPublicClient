@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.source_files = ['Pod/Classes/RgWsPublicClient.{m,h}']
   s.xcconfig = {'HEADER_SEARCH_PATHS' => '"/usr/include/libxml2"'}
   s.library  = 'xml2'
+  s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
     s.subspec 'no-arc' do |sp|
         sp.source_files = ['Pod/Classes/NSDate+ISO8601Parsing.{m,h}', 'Pod/Classes/NSDate+ISO8601Unparsing.{m,h}', 'Pod/Classes/RgWsPublic.{m,h}', 'Pod/Classes/USAdditions.{m,h}', 'Pod/Classes/USGlobals.{m,h}', 'Pod/Classes/xsd.{m,h}']

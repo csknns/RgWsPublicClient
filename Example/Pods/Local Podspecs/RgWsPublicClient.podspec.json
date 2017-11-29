@@ -13,7 +13,7 @@
     "tag": "v0.1.1"
   },
   "platforms": {
-    "ios": "7.0"
+    "ios": "8.0"
   },
   "requires_arc": true,
   "source_files": [
@@ -23,10 +23,8 @@
     "HEADER_SEARCH_PATHS": "\"/usr/include/libxml2\""
   },
   "libraries": "xml2",
-  "resource_bundles": {
-    "RgWsPublicClient": [
-      "Pod/Assets/*.png"
-    ]
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
   },
   "subspecs": [
     {
