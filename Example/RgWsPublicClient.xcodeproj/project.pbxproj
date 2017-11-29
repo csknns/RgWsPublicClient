@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091A08F11FC9BE8E00C3DB8E /* RgWsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */; };
+		194F9084118776AD9341EF20 /* Pods_RgWsPublicClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE270F820F8BAA9A6519F99 /* Pods_RgWsPublicClient.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,9 +23,7 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		74DAA776F40317A3840D5984 /* libPods-RgWsPublicClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC74FD8AD006E25E8C10A885 /* libPods-RgWsPublicClient.a */; };
-		B7E08AC39D23479029C5F9E7 /* libPods-RgWsPublicClient-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 76F576161BD53A5853AAA7CD /* libPods-RgWsPublicClient-Tests.a */; };
+		9A14E9ED662DC250BEA46EB4 /* Pods_RgWsPublicClient_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387EA956F60790D4CE744323 /* Pods_RgWsPublicClient_Tests.framework */; };
 		D0724F7A1A7EA09500D111D8 /* CKNUITableViewCellStyleValue1.m in Sources */ = {isa = PBXBuildFile; fileRef = D0724F791A7EA09500D111D8 /* CKNUITableViewCellStyleValue1.m */; };
 /* End PBXBuildFile section */
 
@@ -38,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RgWsClientTests.m; sourceTree = "<group>"; };
 		09B57D514EFEDB72BEDBEEF3 /* Pods-RgWsPublicClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient.debug.xcconfig"; sourceTree = "<group>"; };
 		132A71747B2B38EE97787C1E /* Pods-RgWsPublicClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient.release.xcconfig"; sourceTree = "<group>"; };
 		28F9E9B91B7A989286A9D14E /* RgWsPublicClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RgWsPublicClient.podspec; path = ../RgWsPublicClient.podspec; sourceTree = "<group>"; };
+		387EA956F60790D4CE744323 /* Pods_RgWsPublicClient_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RgWsPublicClient_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD291B15FA3FDA90D5EEFFE /* Pods-RgWsPublicClient-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient-Tests/Pods-RgWsPublicClient-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* RgWsPublicClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RgWsPublicClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,15 +63,13 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		765F64D6EA39FFFFA7634ECE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		76F576161BD53A5853AAA7CD /* libPods-RgWsPublicClient-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RgWsPublicClient-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7730D1FAD38805A9AE41E6AE /* Pods-RgWsPublicClient-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient-Tests/Pods-RgWsPublicClient-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		7EE270F820F8BAA9A6519F99 /* Pods_RgWsPublicClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RgWsPublicClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0724F781A7EA09500D111D8 /* CKNUITableViewCellStyleValue1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKNUITableViewCellStyleValue1.h; sourceTree = "<group>"; };
 		D0724F791A7EA09500D111D8 /* CKNUITableViewCellStyleValue1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKNUITableViewCellStyleValue1.m; sourceTree = "<group>"; };
 		E09F350CDC96770332DB5EE5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		FC74FD8AD006E25E8C10A885 /* libPods-RgWsPublicClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RgWsPublicClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				74DAA776F40317A3840D5984 /* libPods-RgWsPublicClient.a in Frameworks */,
+				194F9084118776AD9341EF20 /* Pods_RgWsPublicClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				B7E08AC39D23479029C5F9E7 /* libPods-RgWsPublicClient-Tests.a in Frameworks */,
+				9A14E9ED662DC250BEA46EB4 /* Pods_RgWsPublicClient_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,8 +126,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				FC74FD8AD006E25E8C10A885 /* libPods-RgWsPublicClient.a */,
-				76F576161BD53A5853AAA7CD /* libPods-RgWsPublicClient-Tests.a */,
+				7EE270F820F8BAA9A6519F99 /* Pods_RgWsPublicClient.framework */,
+				387EA956F60790D4CE744323 /* Pods_RgWsPublicClient_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5BB195388D20070C39A /* Tests.m */,
+				091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -325,9 +325,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RgWsPublicClient/RgWsPublicClient.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RgWsPublicClient.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -394,9 +397,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient-Tests/Pods-RgWsPublicClient-Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RgWsPublicClient/RgWsPublicClient.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RgWsPublicClient.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -421,7 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
+				091A08F11FC9BE8E00C3DB8E /* RgWsClientTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

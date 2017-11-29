@@ -1,0 +1,6 @@
+framework module RgWsPublicClient {
+  umbrella header "RgWsPublicClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
