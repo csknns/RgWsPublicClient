@@ -12,7 +12,7 @@ osx_image: xcode9.1
 install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-  - set -o pipefail && xcodebuild test -workspace Example/RgWsPublicClient.xcworkspace -scheme RgWsPublicClient-Example -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c
+  - set -o pipefail && xcodebuild test -workspace Example/RgWsPublicClient.xcworkspace -scheme RgWsPublicClient-Example -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' -sdk iphonesimulator -enableCodeCoverage YES | xcpretty -c
   - pod lib lint --quick
 after_success:
   - bash <(curl -s https://codecov.io/bash)
