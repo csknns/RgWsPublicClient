@@ -581,6 +581,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RgWsPublicClient/RgWsPublicClient-Prefix.pch";
 				INFOPLIST_FILE = "RgWsPublicClient/RgWsPublicClient-Info.plist";
