@@ -50,10 +50,19 @@ static RgWsPublicClient *_sharedInstance = nil;
     return self;
 }
 
+- (RgWsPublicBinding *)binding
+{
+    if (!_binding) {
+        _binding = [RgWsPublic RgWsPublicBinding];
+    }
+
+    return _binding;
+}
+
 - (void)rgWsPublicVersionInfoSuccess:(void (^)(NSString *result))success
                              failure:(void (^)(NSError *error))failure
 {
-    RgWsPublicBinding *binding = [RgWsPublic RgWsPublicBinding];
+    RgWsPublicBinding *binding = [self binding];
     [binding setLogXMLInOut:_logXMLPayloadAndHeaders];
     RgWsPublicBindingResponse *response = [binding rgWsPublicVersionInfoUsing];
 
@@ -86,7 +95,7 @@ static RgWsPublicClient *_sharedInstance = nil;
         NSError *error = [NSError errorWithDomain:@"RgWsPublic" code:0 userInfo:userInfo];
         failure(error);
     }
-    RgWsPublicBinding *binding = [RgWsPublic RgWsPublicBinding];
+    RgWsPublicBinding *binding = [self binding];
     [binding setLogXMLInOut:_logXMLPayloadAndHeaders];
     
     RgWsPublic_RgWsPublicInputRtUser *rgWsPublic_RgWsPublicInputRtUser = [RgWsPublic_RgWsPublicInputRtUser new];
