@@ -10,6 +10,11 @@
 #import "RgWsPublic.h"
 
 @interface RgWsPublicClient : NSObject
+{
+    @protected RgWsPublicBinding *_binding;
+}
+
+@property (strong, nonatomic) RgWsPublicBinding *binding;
 @property (nonatomic) BOOL logXMLPayloadAndHeaders;
 
 + (RgWsPublicClient*)clientWithUsername:(NSString *)username password:(NSString *)password;
