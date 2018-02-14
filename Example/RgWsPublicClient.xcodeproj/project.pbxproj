@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		091A08F11FC9BE8E00C3DB8E /* RgWsClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */; };
+		097DA8302034D0A1004A6898 /* RgWsClientSingletonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 097DA82F2034D0A1004A6898 /* RgWsClientSingletonTests.m */; };
 		194F9084118776AD9341EF20 /* Pods_RgWsPublicClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE270F820F8BAA9A6519F99 /* Pods_RgWsPublicClient.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RgWsClientTests.m; sourceTree = "<group>"; };
+		097DA82F2034D0A1004A6898 /* RgWsClientSingletonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RgWsClientSingletonTests.m; sourceTree = "<group>"; };
 		09B57D514EFEDB72BEDBEEF3 /* Pods-RgWsPublicClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient.debug.xcconfig"; sourceTree = "<group>"; };
 		132A71747B2B38EE97787C1E /* Pods-RgWsPublicClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RgWsPublicClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient.release.xcconfig"; sourceTree = "<group>"; };
 		28F9E9B91B7A989286A9D14E /* RgWsPublicClient.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = RgWsPublicClient.podspec; path = ../RgWsPublicClient.podspec; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				097DA82F2034D0A1004A6898 /* RgWsClientSingletonTests.m */,
 				091A08F01FC9BE8E00C3DB8E /* RgWsClientTests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -428,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				091A08F11FC9BE8E00C3DB8E /* RgWsClientTests.m in Sources */,
+				097DA8302034D0A1004A6898 /* RgWsClientSingletonTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
