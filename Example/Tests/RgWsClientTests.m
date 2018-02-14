@@ -152,11 +152,4 @@ NSString *rgWsPublicAfmMethodCallForAfmXMLResponse = @"PD94bWwgdmVyc2lvbj0iMS4wI
      }];
 }
 
-- (void)testUsingClientWithoutConfiguration {
-    //Given we do not configure a RgWsPublicClient with username/password (with clientWithUsername:password:)
-    //When we try to use the client
-    //Then it should throw an Exception
-    XCTAssertThrows([RgWsPublicClient sharedInstance]);
-}
-
 @end
