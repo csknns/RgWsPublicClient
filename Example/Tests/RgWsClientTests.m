@@ -23,6 +23,7 @@ NSString *rgWsPublicAfmMethodCallForAfmXMLResponse = @"PD94bWwgdmVyc2lvbj0iMS4wI
 
 - (void)main
 {
+    [super main];
     response = [RgWsPublicBindingResponse new];
     NSString *mockedResponseString = rgWsPublicVersionInfoXMLResponse;
     responseData = [[mockedResponseString dataUsingEncoding:NSUTF8StringEncoding] mutableCopy];
@@ -119,9 +120,10 @@ NSString *rgWsPublicAfmMethodCallForAfmXMLResponse = @"PD94bWwgdmVyc2lvbj0iMS4wI
 }
 
 - (void)testPublicAfmMethodResponse {
-    RgWsPublicClient *client = [RgWsPublicClient clientWithUsername:@"" password:@""];
+    RgWsPublicClient *client = [RgWsPublicClient clientWithUsername:@"123" password:@"123"];
     [client setBinding:[[RgWsPublicBindingMock alloc] init]];
 
+    XCTestExpectation *expectation = [self expectationWithDescription:@""];
     [client
      rgWsPublicAfmMethodCallForAfm:@"123456789"
      Success:^(RgWsPublic_RgWsPublicBasicRtUser *rgWsPublicBasicRt_out,
@@ -147,9 +149,14 @@ NSString *rgWsPublicAfmMethodCallForAfmXMLResponse = @"PD94bWwgdmVyc2lvbj0iMS4wI
          for (RgWsPublic_RgWsPublicFirmActRtUser *user in arrayOfRgWsPublicFirmActRt_out.RgWsPublicFirmActRtUser) {
              NSLog(@"firmActDescr: %@ %@", user.firmActKindDescr, user.firmActDescr);
          }
+         [expectation fulfill];
      } failure:^(NSError *error) {
          NSLog(@"%@ %@", [error class], [error localizedDescription]);
+         [expectation fulfill];
      }];
+
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
+    }];
 }
 
 @end
