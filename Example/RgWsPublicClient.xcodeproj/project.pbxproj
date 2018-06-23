@@ -256,11 +256,6 @@
 				CLASSPREFIX = CKN;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Christos Koninis";
-				TargetAttributes = {
-					6003F5AD195388D20070C39A = {
-						TestTargetID = 6003F589195388D20070C39A;
-					};
-				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "RgWsPublicClient" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -620,7 +615,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5BD291B15FA3FDA90D5EEFFE /* Pods-RgWsPublicClient-Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RgWsPublicClient.app/RgWsPublicClient";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -635,7 +629,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -644,7 +637,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7730D1FAD38805A9AE41E6AE /* Pods-RgWsPublicClient-Tests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RgWsPublicClient.app/RgWsPublicClient";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -655,7 +647,6 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
