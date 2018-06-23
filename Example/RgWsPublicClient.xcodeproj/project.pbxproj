@@ -215,7 +215,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				1ABA7B2E6FD127DCF9497191 /* [CP] Embed Pods Frameworks */,
-				64EF4BB9AF54694AA8726BBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,7 +234,6 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				E330AE1FA7950F9BCA9752BD /* [CP] Embed Pods Frameworks */,
-				2C502D83E843F23D6E187A3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,42 +331,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2C502D83E843F23D6E187A3B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient-Tests/Pods-RgWsPublicClient-Tests-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/RgWsPublicClient/RgWsPublicClient.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient-Tests/Pods-RgWsPublicClient-Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		64EF4BB9AF54694AA8726BBE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/RgWsPublicClient/RgWsPublicClient.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RgWsPublicClient/Pods-RgWsPublicClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ACEE277465887A3DFB7B991F /* [CP] Check Pods Manifest.lock */ = {
