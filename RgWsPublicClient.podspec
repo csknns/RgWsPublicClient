@@ -9,13 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name             = "RgWsPublicClient"
-  s.version          = "0.1.1"
+  s.version          = "0.2.0"
   s.summary          = "A client for retrieving legal entities details from GSIS"
   s.description      = "A client that provides access to the web service offered by Greece's Ministry of Finance General Secretariat of Information Systems for retrieving legal entities details"
   s.homepage         = "https://github.com/csknns/RgWsPublicClient"
   s.license          = 'MIT'
   s.author           = { "Christos Koninis" => "christos.koninis@gmail.com" }
-  s.source           = { :git => "https://github.com/csknns/RgWsPublicClient.git", :tag => 'v0.1.1' }
+  s.source           = { :git => "https://github.com/csknns/RgWsPublicClient.git", :tag => 'v0.2.0' }
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true

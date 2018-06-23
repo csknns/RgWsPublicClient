@@ -8,11 +8,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   RgWsPublicClient:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  RgWsPublicClient: ec42a1a64de5d9db6ee2e769c297929671c0e7d8
+  RgWsPublicClient: f273865ebe0e1da11c03c6c31e7be7bba3160a40
 
 PODFILE CHECKSUM: 1daa96ef2c56502309d83800ed625e3d3e4fe235
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.0
